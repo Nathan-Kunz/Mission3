@@ -7,26 +7,45 @@ namespace csharpPracticeFun
     class Support
     {
         //Method 1 --print board
-        public void gameBoard(string[] board) //recieving array from Driver class
+        public void printBoard(string[,] board) //recieving array from Driver class
         {
+            Console.WriteLine("\n Board \n");
 
-            for (int i = 0; i < 3; i++)
+            //looping through coordinates from array passed in 
+            for (int x = 0; x < 3; x++)
             {
-                for (int j = 0; j < 3; j++)
+                for (int y = 0; y < 3; y++)
                 {
-                    Console.Write(" " + board[i, j] + " |");
+
+                    //printing spaces between X's and O's
+                    if(y == 2)
+                    {
+                        Console.Write(" " + board[x, y]);
+                    }
+                    else
+                    {
+                        Console.Write(" " + board[x, y] + " |");
+                    }
                 }
+
+                //printing dividers for the middle rows
+                if (x < 2)
+                {
+                    Console.WriteLine("\n---|---|---");
+                }
+                else
+                {
+                    Console.WriteLine("\n");
+                }
+
             }
-            Console.WriteLine(" Print Board ");
-            Console.WriteLine(board[0] + " | " + board[1] + " | " + board[2]);
-            Console.WriteLine(board[3] + " | " + board[4] + " | " + board[5]);
-            Console.WriteLine(board[6] + " | " + board[7] + " | " + board[8]);
 
         }
 
         //Method 2 --find winner
-        public void winnerCheck() 
+        public void winnerCheck(string[,] board)
         {
 
         }
+    }
 }
