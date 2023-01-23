@@ -40,6 +40,8 @@ namespace csharpPracticeFun
                 board[col - 1, row - 1] = player;
                 Support support = new Support();
                 support.printBoard(board);
+
+                
                 //for (int x = 0; x < 3; x++)
                 //{
                 //    for (int iin = 0; iin < 3; iin++)
