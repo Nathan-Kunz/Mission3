@@ -6,26 +6,34 @@ namespace csharpPracticeFun
     {
         static void Main(string[] args)
         {
+            // begin a while loop so that players can play several times
             string playAgain = "y";
             while (playAgain == "y"){
-
+                
+                // welcome users to the game and create the board array with just "_"
                 Console.WriteLine("Welcome to Tic Tac Toe!!");
                 string[,] board = new string[3, 3];
+
+                
                 for (int x = 0; x < 3; x++)
                 {
                     for (int iin = 0; iin < 3; iin++)
                     {
                         board[x, iin] = "_";
-                        Console.Write(board[x, iin] + " ");
                     }
-                    Console.WriteLine();
                 }
-            ;
+
+                // call the printBoard method to display the empty tictactoe board
+                Support supp1 = new Support();
+                supp1.printBoard(board);
+
+                // instantiate all variables globally
                 string player = "";
                 bool winner = false;
                 int i = 1;
-                //for (int i = 1; i <= 9; i++)
-                while (i < 10 || winner == false)
+
+                // create a while loop that keeps the user playing UNLESS a player wins or 9 turns are used
+                while (i < 10 && winner == false)
                 {
                     if (i % 2 == 0)
                     {
@@ -43,37 +51,30 @@ namespace csharpPracticeFun
                     Console.WriteLine("What Column do you want?");
                     int row = Convert.ToInt32(Console.ReadLine());
 
+                    // update the board with the player's selection
                     board[col - 1, row - 1] = player;
-                    Support support = new Support();
-                    support.printBoard(board);
-                    support.winnerCheck(board);
+
+                    // print the board and check if there was a winner
+                    //Support support = new Support();
+                    supp1.printBoard(board);
+                    winner = supp1.winnerCheck(board);
+
                     i++;
-
-                    //for (int x = 0; x < 3; x++)
-                    //{
-                    //    for (int iin = 0; iin < 3; iin++)
-                    //    {
-
-                    //        Console.Write(board[x, iin] + " ");
-                    //    }
-                    //    Console.WriteLine();
-                    //}
                 }
-
-                if (i == 9 && winner == false)
+                
+                // if no winner, but 9 turns have been used, print that it was a draw
+                if (winner == false)
                 {
-                    Console.WriteLine("It's a DRAW!");
+                    Console.WriteLine("It's a DRAW!\n");
                 }
-                //else
-                //{
-                //    Console.WriteLine(player + "WINS!!!");
-                //}
 
+                // ask if the user wants to play again, if not, break the larger while loop
                 Console.Write("Play again? Y/N:  ");
                 playAgain = Console.ReadLine().ToLower();
-
             }
-            Console.WriteLine("Thanks for playing!!");
+
+            // thank the user for playing!
+            Console.WriteLine("\n\nThanks for playing!!");
         }
         
     }

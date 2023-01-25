@@ -43,7 +43,7 @@ namespace csharpPracticeFun
         }
 
         //Method 2 --find if there is a winner and who it was
-        public winnerCheck(string[,] board)
+        public bool winnerCheck(string[,] board)
         {
             char v = '_'; //used in the if statements to check if the value in the array is "blank"
 
@@ -55,13 +55,13 @@ namespace csharpPracticeFun
                     if (board[x, 0] == "X") //checking which value matched which player to assign correct win credit
                     {
                         Console.WriteLine("Player X won the game! \n");
-                        return bool winner = true;
+                        return true;
                     }
                     else
                     {
                         Console.WriteLine("Player O won the game! \n");
+                        return true;
                     }
-                    
                 }
             }
 
@@ -74,12 +74,15 @@ namespace csharpPracticeFun
                     if (board[0, y] == "X") //checking which value matched which player to assign correct win credit
                     {
                         Console.WriteLine("Player X won the game! \n");
+                        return true;
+
                     }
                     else
                     {
                         Console.WriteLine("Player O won the game! \n");
+                        return true;
+
                     }
-                    
                 }
             }
 
@@ -89,10 +92,15 @@ namespace csharpPracticeFun
                 if (board[0, 0] == "X") //checking which value matched which player to assign correct win credit
                 {
                     Console.WriteLine("Player X won the game! \n");
+                    return true;
+
                 }
                 else
                 {
                     Console.WriteLine("Player O won the game! \n");
+                    return true;
+
+
                 }
             }
 
@@ -101,13 +109,18 @@ namespace csharpPracticeFun
                 if (board[0, 2] == "X") //checking which value matched which player to assign correct win credit
                 {
                     Console.WriteLine("Player X won the game! \n");
+                    return true;
+
                 }
                 else
                 {
                     Console.WriteLine("Player O won the game! \n");
+                    return true;
+
                 }
             }
 
+            return false;
         }
     }
 }
