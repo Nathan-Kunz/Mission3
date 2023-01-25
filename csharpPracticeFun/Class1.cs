@@ -43,7 +43,7 @@ namespace csharpPracticeFun
         }
 
         //Method 2 --find if there is a winner and who it was
-        public void winnerCheck(string[,] board)
+        public winnerCheck(string[,] board)
         {
             char v = '_'; //used in the if statements to check if the value in the array is "blank"
 
@@ -55,6 +55,7 @@ namespace csharpPracticeFun
                     if (board[x, 0] == "X") //checking which value matched which player to assign correct win credit
                     {
                         Console.WriteLine("Player X won the game! \n");
+                        return bool winner = true;
                     }
                     else
                     {
